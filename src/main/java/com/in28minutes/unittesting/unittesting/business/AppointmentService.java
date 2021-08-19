@@ -26,4 +26,9 @@ public class AppointmentService {
 		return appointments;	
 	}
 	
+	public Appointment saveAppointment(Appointment app) {
+		return repository.save(app);
+	};
+	
+	
 }
