@@ -38,5 +38,10 @@ public class ItemBusinessService {
 		return repository.save(item);
 	}
 	
+	public Item saveItemWithNoNameShouldThrowException(Item item) {
+		Item saved = repository.save(item);
+//		saved.setName(null);
+		return repository.save(item);
+	}
 
 }

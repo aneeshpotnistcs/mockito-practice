@@ -37,9 +37,25 @@ class ItemBusinessServiceTest {
 		Item saved = business.saveItem(item);
 		assertEquals("fraud", saved.getName());
 		assertNotNull(saved.getId());
-		
+	}
+	
+	@Test
+	void testSaveItemWithNoNameShouldThrowException() {
+		Item item = new Item(5, null, 20, 20);
+		try {
+			String name = item.getName();
+			name.equals(null);
+		}
+		catch(Exception e){
+			assertNotNull(e);
+			assertEquals(NullPointerException.class, e.getClass());			
+		}
+//		when(repository.save(item)).thenReturn(item);
+//		Item saved = business.saveItemWithNoNameShouldThrowException(item);
+//		assertEquals("ABC", saved.getName());
 	}
 
+	
 	@Test
 	void testRetrieveAllItems() {
 		when(repository.findAll()).thenReturn(Arrays.asList(new Item(2, "Item2", 20, 20),new Item(3, "Item3", 20, 20)));
